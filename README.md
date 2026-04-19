@@ -10,8 +10,6 @@
 > 
 > **代码**：https://github.com/Applied-Machine-Learning-Lab/ICLR2026_SONATA
 
-![图1：因子轨迹学习效果](Figure/simu_U11.png) ![图2：因子轨迹学习效果](Figure/simu_U12.png) ![图3：因子轨迹学习效果](Figure/simu_U21.png) ![图4：因子轨迹学习效果](Figure/simu_U22.png)
-
 ---
 
 ## 核心问题
@@ -21,7 +19,7 @@
 1. **建模表达能力有限**：现有方法往往采用简化的时间假设（如离散时间分箱、线性插值），无法捕捉实体间复杂、非平稳的时间演化关系。
 2. **流数据效率低下**：处理每个观测数据点在计算上代价高昂。现有方法要么无差别地处理所有数据，要么采用启发式采样，忽视了流数据中信息价值的高度不均匀性——大量样本是冗余的，而少数样本对提升表示质量和预测精度至关重要。
 
-![图5：coreset 因子 vs 非 coreset 因子对比](Figure/specified_coreset_factors_red.png)
+![图1：coreset 因子 vs 非 coreset 因子对比](Figure/specified_coreset_factors_red.png)
 
 ---
 
@@ -73,7 +71,7 @@ SONATA 在所有数据集上均取得最佳性能。在 CA Traffic 30K 上，RMS
 | BeijingAir | **0.237** | 0.248 (SFTL-CP) | 4.4% |
 | FitRecord | **0.414** | 0.424 (SFTL-CP) | 2.4% |
 
-![图6：coreset 因子 vs 非 coreset 因子](Figure/specified_non_coreset_factors_blue.png)
+![图2：coreset 因子 vs 非 coreset 因子](Figure/specified_non_coreset_factors_blue.png)
 
 ### 2. Coreset 有效性分析
 
@@ -83,17 +81,17 @@ SONATA 在所有数据集上均取得最佳性能。在 CA Traffic 30K 上，RMS
 
 **时间长度尺度（Lengthscale）效应**：在 Server 数据集上，lengthscale=0.3 时取得最低误差（RMSE=0.129）。过小导致过拟合噪声，过大则过度平滑重要时间模式。
 
-![图7：Lengthscale 效应](Figure/sonata_lengthscale_effect_largefont.png)
+![图3：Lengthscale 效应](Figure/sonata_lengthscale_effect_largefont.png)
 
 **核函数选择**：Matérn-3/2 核相比 Matérn-1/2，RMSE 降低 **49.1%**，MAE 降低 **47.0%**，证明中等平滑度更适合时空张量数据。
 
-![图8：核函数效应](Figure/sonata_kernel_effect_largefont.png)
+![图4：核函数效应](Figure/sonata_kernel_effect_largefont.png)
 
 ### 4. 计算效率
 
 SONATA 每次迭代仅需 **0.338 秒**，远低于基于深度神经网络的 THIS-ODE（7.190 秒），同时保持最高精度。这体现了"无需深度网络，也能又准又快"的设计理念。
 
-![图9：运行时间对比](Figure/sonata_running_time_largefont.png)
+![图5：运行时间对比](Figure/sonata_running_time_largefont.png)
 
 ### 5. Coreset 预算分析
 
