@@ -6,7 +6,7 @@
 
 > **论文标题**：SONATA: Synergistic Coreset Informed Adaptive Temporal Tensor Factorization
 > 
-> **论文链接**：https://openreview.net/forum?id=（待补充）
+> **论文链接**：[https://openreview.net/forum?id=（待补充）](https://openreview.net/forum?id=P1PZBR6a4S)
 > 
 > **代码**：https://github.com/Applied-Machine-Learning-Lab/ICLR2026_SONATA
 
